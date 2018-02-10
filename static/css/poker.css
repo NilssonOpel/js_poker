@@ -42,7 +42,8 @@
 .card {
     width:50px;
     height:73px;
-    background-image: url('../images/back.png');
+    border-radius: 2px;
+    background-image: url('../images/cardback.gif');
     background-size: 100%;
 }
 
@@ -87,7 +88,7 @@
 }
 #seat1 .bet {
     left:30px;
-    top:125px;
+    top:100px;
 }
 
 #seat2 {
@@ -99,8 +100,8 @@
     top:215px;
 }
 #seat2 .bet {
-    left:-50px;
-    top:75px;
+    left:0px;
+    top:100px;
 }
 
 #seat3 {
@@ -125,7 +126,7 @@
     top:325px;
 }
 #seat4 .bet {
-    left:80px;
+    left:40px;
     top:-20px;
 }
 
@@ -138,8 +139,8 @@
     top:215px;
 }
 #seat5 .bet {
-    left:155px;
-    top:75px;
+    left:50px;
+    top:100px;
 }
 
 #seat6 {
@@ -151,8 +152,8 @@
     top:80px;
 }
 #seat6 .bet {
-    left:80px;
-    top:125px;
+    left:30px;
+    top:100px;
 }
 
 #board {
@@ -165,7 +166,7 @@
     position: absolute;
     left:325;
     top:245px;
-    font-size: 12px;
+    font-size: 16px;
     color:white;
     text-align: center;
 }
@@ -199,14 +200,14 @@
 
 #action-options {
     width:500px;
-    height:200px;
+    height:100px;
     position: absolute;
     left:400px;
-    top:500px;
+    top:450px;
 }
 
 .action-button {
-    background-color: gray;
+    background-color: silver;
     position: absolute;
     color: white;
     border-radius: 2px;
@@ -248,13 +249,13 @@
 }
 
 #raise-button {
-    left:200px;
+    left:160px;
 }
 
 #history {
     position:absolute;
     width:400px;
-    height:600;
+    height:600px;
     border-color: black;
     border-style: solid;
     border-width: 1px;
