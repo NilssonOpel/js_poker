@@ -17,21 +17,16 @@ testhand = {
       }
     ],
     "HoleCards": [
-      {
-        "Rank": "King",
-        "Suit": "Hearts"
-      },
-      {
-        "Rank": "Jack",
-        "Suit": "Clubs"
-      }
+                  "h13",
+                  "c11"
     ],
     "Rounds": [
       {
         "Actions": [
           {
             "Player": "Sevillano720",
-            "Type": "Fold"
+            "Type": "Fold",
+            "Amount": "5"
           },
           {
             "Player": "LC1492",
@@ -40,7 +35,8 @@ testhand = {
           },
           {
             "Player": "Dodenburg",
-            "Type": "Fold"
+            "Type": "Fold",
+            "Amount": "5"
           },
           {
             "Player": "TeeJay5",
@@ -66,18 +62,9 @@ testhand = {
       },
       {
         "CommunityCards": [
-          {
-            "Rank": "Ten",
-            "Suit": "Diamonds"
-          },
-          {
-            "Rank": "Jack",
-            "Suit": "Diamonds"
-          },
-          {
-            "Rank": "Eight",
-            "Suit": "Clubs"
-          }
+        "d10",
+        "d11",
+        "c8"
         ],
         "Actions": [
           {
@@ -121,10 +108,7 @@ testhand = {
         ]
       },
       {
-        "CommunityCards": {
-          "Rank": "Five",
-          "Suit": "Spades"
-        },
+        "CommunityCards": "s5",
         "Actions": [
           {
             "Player": "TAP_OR_SNAP",
@@ -143,10 +127,7 @@ testhand = {
         ]
       },
       {
-        "CommunityCards": {
-          "Rank": "Nine",
-          "Suit": "Clubs"
-        },
+        "CommunityCards": "c9",
         "Actions": [
           {
             "Player": "TAP_OR_SNAP",
@@ -182,28 +163,16 @@ testhand = {
       {
         "Player": "OsoWhisper",
         "HoleCards": [
-          {
-            "Rank": "Nine",
-            "Suit": "Spades"
-          },
-          {
-            "Rank": "Queen",
-            "Suit": "Spades"
-          }
+            "s9",
+            "s12"
         ],
         "WonPots": { "Amount": "258" }
       },
       {
         "Player": "TAP_OR_SNAP",
         "HoleCards": [
-          {
-            "Rank": "Nine",
-            "Suit": "Diamonds"
-          },
-          {
-            "Rank": "Ten",
-            "Suit": "Hearts"
-          }
+        "d9",
+        "h10"
         ]
       }
     ],
@@ -211,7 +180,7 @@ testhand = {
       {
         "Name": "TeeJay5",
         "Stack": "526",
-        "Seat": "1"
+        "Seat": "1"     // index start at 1
       },
       {
         "Name": "TAP_OR_SNAP",
@@ -231,12 +200,12 @@ testhand = {
       {
         "Name": "Dodenburg",
         "Stack": "458.5",
-        "Seat": "6"
+        "Seat": "5"
       },
       {
         "Name": "LC1492",
         "Stack": "641",
-        "Seat": "5"
+        "Seat": "6"
       }
     ],
     "Rake": "2.00",
@@ -255,82 +224,34 @@ function catchUp(){
     setPots(testhand);
 
     curActions = testhand['PokerHand']['Rounds'][round]['Actions'];
-    curBets = [0,0,0,0,0,0,0];
+    curBets = [0,0,0,0,0,0];
     addCommittedAmounts(curActions, curBets, testhand);
     for (var i = 0; i < curBets.length; i++)
-        setBet(curBets[i], i+1);
+        gui_set_bet(curBets[i], i+1);
 
-    moveButton(targetSeat + 1);
+    gui_place_button(targetSeat + 1);
     targetSeat = (targetSeat + 1) % 6;
 }
 
 function updateGameState() {
-    var sidebar = $('#poker_table');
+/*
+  var sidebar = $('#poker_table');
     var requestData = {
         url: sidebar.data('uid')
     };
+    */
     catchUp();
 
-    // $.ajax({
-    //     url: '/Games/GetState',
-    //     type: 'POST',
-    //     data: JSON.stringify(requestData),
-    //     dataType: 'json',
-    //     contentType: 'application/json; charset=utf-8',
-    //     success: function (msg) {
-    //         var history = msg.State;
-    //         var prevHand = msg.Previous;
-
-    //         if(history.Context.ID != game.Context.ID)
-    //                 resetTable();
-            
-    //         game = history;
-
-    //         // Update the GUI with any 
-    //         catchUp();
-
-    //         // Set the timer, or hide it if it's not our turn
-    //         if (msg.Timer != null)
-    //             setTimer(msg.Timer.Value);
-    //         else 
-    //             hideTimer();
-    //     },
-    //     error: function (msg) {
-    //         $("#error-results").prepend(msg.responseText);
-    //         $("#error-results").prepend(prettyPrint(msg));
-    //         $("#error-results").show();
-    //     }
-    // });
+    window.setTimeout(updateGameState, 1000);
 }
 
-function setTimer(val) {
-    var timer = $('#game-timer');
-    timer.removeClass();
-    if (val < 10)
-        timer.addClass("timer-warning");
-    else
-        timer.addClass("timer-normal");
-    
-    if (val < 0)
-        val = 0;
-
-    timer.text(val + " seconds remaining.");
-    timer.show();
-}
-function hideTimer() {
-    $('#game-timer').hide();
-}
 
 function setPlayerNames(hand){
     players = hand['PokerHand']['Players'];
     for(var i = 0; i < players.length; i++)
-        setPlayerName(players[i]['Name'], parseInt(players[i]['Seat']));
+        gui_set_player_name(players[i]['Name'], parseInt(players[i]['Seat']));
 }
 
-function setPlayerName(name, seat){
-    var namediv = $('#seat' + seat).children('.name-chips').children('.player-name');
-    namediv.text(name);
-}
 
 function setPlayerStacks(hand){
     committed = [0,0,0,0,0,0,0];
@@ -345,17 +266,10 @@ function setPlayerStacks(hand){
     for(var i = 0; i < players.length; i++){
         stack = parseFloat(players[i]['Stack']);
         seat = parseInt(players[i]['Seat']);
-        setPlayerStack(stack - committed[seat], seat);
+        gui_set_bankroll(stack - committed[seat], seat);
     }
 }
 
-function setPlayerStack(amount, seat){
-    chipsdiv = $('#seat' + seat).children('.name-chips').children('.chips');
-    if(amount == null)
-        chipsdiv.text("");
-    else
-        chipsdiv.text("$" + amount);
-}
 
 function addCommittedAmounts(actions, committed, hand){
     for(var aidx = 0; aidx < actions.length; aidx++){
@@ -368,28 +282,6 @@ function addCommittedAmounts(actions, committed, hand){
     }
 }
 
-function getCardSrc(rank, suit) {
-    rank = rank.toLowerCase();
-    if(rank == "two")
-        rank = 2;
-    else if (rank == "three")
-        rank = 3;
-    else if (rank == "four")
-        rank = 4;
-    else if (rank == "five")
-        rank = 5;
-    else if (rank == "six")
-        rank = 6;
-    else if (rank == "seven")
-        rank = 7;
-    else if (rank == "eight")
-        rank = 8;
-    else if (rank == "nine")
-        rank = 9;
-    else if (rank == "ten")
-        rank = 10;
-    return "url('static/images/" + rank + "_of_" + suit.toLowerCase() + ".png')";
-}
 
 function setHeroCards(hand) {
     var hero = hand['PokerHand']['Hero'];
@@ -419,13 +311,8 @@ function findSeatNumber(player, hand){
     return -1;
 }
 
-function setHoleCards(hc, seat){    
-    var holecards = $('#seat' + seat).children('.holecards');
-    var card1 = holecards.children('.holecard1');
-    var card2 = holecards.children('.holecard2');
-
-    setCard(card1, hc[0]);
-    setCard(card2, hc[1]);
+function setHoleCards(hc, seat){
+    gui_set_player_cards(hc[0], hc[1], seat);
 }
 
 function setBoard(hand){
@@ -437,35 +324,26 @@ function setBoard(hand){
             if(round >= 3){
                 setRiver(testhand['PokerHand']['Rounds'][3]['CommunityCards']);
             }
-        }         
+        }
     }
 }
 
 function setFlop(flop) {
-    setCard($('#flop1'), flop[0]);
-    setCard($('#flop2'), flop[1]);
-    setCard($('#flop3'), flop[2]);
+  gui_lay_board_card(0, flop[0]);
+  gui_lay_board_card(1, flop[1]);
+  gui_lay_board_card(2, flop[2]);
 }
 
 function setTurn(turn) {
-    setCard($('#turn'), turn);
+  gui_lay_board_card(3, turn);
 }
 
 function setRiver(river) {
-    setCard($('#river'), river);
+  gui_lay_board_card(4, river);
 }
 
-function setCard(div, card){
-    div.css('background-image', getCardSrc(card['Rank'], card['Suit']))
-}
 
-function setBet(bet, seat){
-    var betdiv = $('#seat' + seat).children('.bet');
-    if (bet == null || bet == 0)
-        betdiv.text('');
-    else
-        betdiv.text('$' + bet);
-}
+//////////////////////////////////////////////////////
 
 function setPots(hand){
     // TODO: Handle side pots on all-ins
@@ -496,49 +374,28 @@ function setPots(hand){
                 curPot += amt;
         }
     }
-
-    setCurrentPot(curPot);
-    setTotalPot(totalPot);
+    gui_write_basic_general(totalPot);
 }
 
-function setTotalPot(amount){
-    $('#total-pot').text('Total pot: $' + amount.toFixed(2));
-}
 
-function setCurrentPot(amount){
-    if(amount == 0)
-        $('#current-pot').text("");
-    else
-        $('#current-pot').text('$' + amount.toFixed(2));
-}
 
-function getChipSrc(chipValue){
-    
-}
 
 function foldClicked(){
-    
+
 }
 
 function callClicked(){
-    
+
 }
 
 function raiseClicked(){
-    
+
 }
 
 function resetTable(){
-    
+
 }
 
-function moveButton(seat){
-    var button = $('#button');
-    button.removeClass();
-    button.addClass('seat' + seat + '-button');
+function init() {
+  updateGameState();
 }
-
-$(document).everyTime(1000,
-function (i) {
-    updateGameState();
-}, 0);

@@ -2,12 +2,11 @@
 <head>
     <title>Wesley's Poker Game</title>
     <link rel="stylesheet" href="static/css/poker.css" type="text/css">
-    <script type="text/javascript" src="static/js/jquery.min.js"></script>
-    <script type="text/javascript" src="static/js/jquery.timers.min.js"></script>
     <script type="text/javascript" src="static/js/poker.js"></script>
-    <script type="text/javascript" src="static/js/prettyprint.js"></script>
+    <script type="text/javascript" src="static/js/gui_if.js"></script>
 </head>
-<body>
+<body onload="parent.init()">
+
     <div id="poker_table" class="poker-table" data-uid="">
         <div id="seat1" class="seat">
             <div class="holecards">
@@ -88,12 +87,28 @@
         </div>
     </div>
     <div id="button" class="seat6-button"></div>
-    <div id="game-timer" class="timer-normal">29 seconds remaining.</div>
-    <div id="history"></div>
+    <div id="history">Start of history</div>
     <div id="action-options">
         <div id="fold-button" class="action-button">Fold</div>
         <div id="call-button" class="action-button">Call $80</div>
         <div id="raise-button" class="action-button">Raise $120</div>
     </div>
+    <div id="setup-options">
+        <div id="name-button" class="setup-button">Name</div>
+        <div id="speed-button" class="setup-button">Speed
+           <div id="speed-selector">
+              <select>
+                 <option value="0">1</option>
+                 <option value="1">2</option>
+                 <option value="2">3</option>
+                 <option value="3">4</option>
+                 <option value="4">5</option>
+              </select>
+           </div>
+        </div>
+        <div id="help-button" class="setup-button">Help</div>
+    </div>
+    <div id="quick-raises">Quick Raises</div>
+    <div id="game-response" class="response-normal">Game response</div>
 </body>
 </html>
