@@ -54,6 +54,16 @@ testhand = {
             "Amount": "10"
           },
           {
+            "Player": "Söta Åsa",
+            "Type": "Call",
+            "Amount": "15"
+          },
+          {
+            "Player": "Давид Харис",
+            "Type": "Call",
+            "Amount": "10"
+          },
+          {
             "Player": "LC1492",
             "Type": "Call",
             "Amount": "10"
@@ -178,9 +188,14 @@ testhand = {
     ],
     "Players": [
       {
+        "Name": "Söta Åsa",
+        "Stack": "347",
+        "Seat": "0"
+      },
+      {
         "Name": "TeeJay5",
         "Stack": "526",
-        "Seat": "1"     // index start at 1
+        "Seat": "1"
       },
       {
         "Name": "TAP_OR_SNAP",
@@ -203,10 +218,15 @@ testhand = {
         "Seat": "5"
       },
       {
-        "Name": "LC1492",
+        "Name": "LCia1492",
         "Stack": "641",
         "Seat": "6"
-      }
+      },
+      {
+        "Name": "Давид Харис",
+        "Stack": "793",
+        "Seat": "7"
+      },
     ],
     "Rake": "2.00",
     "Hero": "TeeJay5"
@@ -224,13 +244,13 @@ function catchUp(){
     setPots(testhand);
 
     curActions = testhand['PokerHand']['Rounds'][round]['Actions'];
-    curBets = [0,0,0,0,0,0];
+    curBets = [0,0,0,0,0,0,20,37];
     addCommittedAmounts(curActions, curBets, testhand);
     for (var i = 0; i < curBets.length; i++)
-        gui_set_bet(curBets[i], i+1);
+        gui_set_bet(curBets[i], i);
 
-    gui_place_button(targetSeat + 1);
-    targetSeat = (targetSeat + 1) % 6;
+    gui_place_button(targetSeat);
+    targetSeat = (targetSeat + 1) % 8;
 }
 
 function updateGameState() {
@@ -248,8 +268,12 @@ function updateGameState() {
 
 function setPlayerNames(hand){
     players = hand['PokerHand']['Players'];
-    for(var i = 0; i < players.length; i++)
-        gui_set_player_name(players[i]['Name'], parseInt(players[i]['Seat']));
+    for(var i = 0; i < players.length; i++) {
+
+      var message = "Index " + i + " " + players[i]['Name'] + " " + players[i]['Seat'];
+      gui_log_to_history(message);
+      gui_set_player_name(players[i]['Name'], parseInt(players[i]['Seat']));
+    }
 }
 
 

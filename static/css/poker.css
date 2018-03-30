@@ -78,83 +78,115 @@
     top:0;
 }
 
-#seat1 {
-    left:500px;
-    top:10px;
-}
-.seat1-button {
-    left:500px;
-    top:80px;
-}
-#seat1 .bet {
-    left:30px;
-    top:100px;
-}
-
-#seat2 {
-    left:650px;
-    top:165px;
-}
-.seat2-button {
-    left:645px;
-    top:235px;
-}
-#seat2 .bet {
-    left:0px;
-    top:100px;
-}
-
-#seat3 {
-    left:500px;
+#seat0 {
+    left:100px;
     top:340px;
 }
-.seat3-button {
-    left:490px;
+.seat0-button {
+    left:225px;
     top:410px;
 }
-#seat3 .bet {
-    left:30px;
-    top:-20px;
-}
-
-#seat4 {
-    left:150px;
-    top:340px;
-}
-.seat4-button {
-    left:275px;
-    top:410px;
-}
-#seat4 .bet {
+#seat0 .bet {
     left:40px;
     top:-20px;
 }
 
-#seat5 {
+#seat1 {
     left:0px;
     top:165px;
 }
-.seat5-button {
+.seat1-button {
     left:125px;
     top:235px;
 }
-#seat5 .bet {
+#seat1 .bet {
     left:50px;
     top:100px;
 }
 
-#seat6 {
-    left:150px;
+#seat2 {
+    left:100px;
     top:10px;
 }
-.seat6-button {
-    left:275px;
+.seat2-button {
+    left:225px;
     top:80px;
 }
-#seat6 .bet {
+#seat2 .bet {
     left:30px;
     top:100px;
 }
+
+#seat3 {
+    left:325px;
+    top:10px;
+}
+
+.seat3-button {
+    left:320px;
+    top:80px;
+}
+#seat3 .bet {
+    left:30px;
+    top:100px;
+}
+
+#seat4 {
+    left:550px;
+    top:10px;
+}
+
+.seat4-button {
+    left:540px;
+    top:80px;
+}
+#seat4 .bet {
+    left:30px;
+    top:100px;
+}
+
+
+
+#seat5 {
+    left:650px;
+    top:165px;
+}
+.seat5-button {
+    left:645px;
+    top:235px;
+}
+#seat5 .bet {
+    left:0px;
+    top:100px;
+}
+
+#seat6 {
+    left:550px;
+    top:340px;
+}
+.seat6-button {
+    left:540px;
+    top:410px;
+}
+#seat6 .bet {
+    left:30px;
+    top:-20px;
+}
+
+
+#seat7 {
+    left:325px;
+    top:340px;
+}
+.seat7-button {
+    left:320px;
+    top:410px;
+}
+#seat7 .bet {
+    left:30px;
+    top:-20px;
+}
+
 
 #board {
     position:absolute;
@@ -202,7 +234,7 @@
     width:500px;
     height:100px;
     position: absolute;
-    left:400px;
+    left:100px;
     top:450px;
 }
 
@@ -223,8 +255,8 @@
     width:100px;
     height:400px;
     position: absolute;
-    left:700px;
-    top:650px;
+    left:800px;
+    top:450px;
 }
 
 .setup-button {
@@ -244,7 +276,7 @@
 }
 
 #speed-button {
-    top:80px;
+    top:60px;
     width:100px;
 }
 
@@ -255,14 +287,28 @@ select {
     border:none;
     top:10px;
     left:60px;
-    width:2em;
+    width:3em;
     border-radius: 2px;
 }
 
 #help-button {
-    top:160px;
+    top:120px;
 }
 
+#history {
+    position:absolute;
+    border-radius: 2px;
+    border-color: black;
+    border-style: solid;
+    border-width: 1px;
+    font-size: 10px;
+
+    width:400px;
+    height:600px;
+
+    left:50px;
+    top:600px;
+}
 
 #game-response {
     position: absolute;
@@ -270,14 +316,15 @@ select {
     border-color: black;
     border-style: solid;
     border-width: 1px;
-    border-radius: 2px;
     color: black;
     font-size: 12px;
     text-align: center;
+
     width:600px;
     height:300px;
-    left:50px;
-    top:600px;
+
+    left:800px;
+    top:5px;
 }
 
 .response-normal {
@@ -308,7 +355,7 @@ select {
     text-align: center;
     width:300px;
     height:75px;
-    left:350px;
+    left:50px;
     top:500px;
 }
 #quick-raises a:link {
@@ -320,15 +367,3 @@ select {
     text-shadow: 3px 3px 4px #000000;
 }
 
-#history {
-    position:absolute;
-    width:400px;
-    height:600px;
-    border-color: black;
-    border-style: solid;
-    border-width: 1px;
-    border-radius: 2px;
-    font-size: 10px;
-    left:800px;
-    top:5px;
-}

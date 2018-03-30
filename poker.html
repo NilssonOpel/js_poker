@@ -1,6 +1,7 @@
 <html>
 <head>
-    <title>Wesley's Poker Game</title>
+    <title>The Poker Game</title>
+    <meta charset="UTF-8">
     <link rel="stylesheet" href="static/css/poker.css" type="text/css">
     <script type="text/javascript" src="static/js/poker.js"></script>
     <script type="text/javascript" src="static/js/gui_if.js"></script>
@@ -8,7 +9,7 @@
 <body onload="parent.init()">
 
     <div id="poker_table" class="poker-table" data-uid="">
-        <div id="seat1" class="seat">
+        <div id="seat0" class="seat">
             <div class="holecards">
                 <div class="card holecard1"></div>
                 <div class="card holecard2"></div>
@@ -19,7 +20,7 @@
             </div>
             <div class="bet">$80.00</div>
         </div>
-        <div id="seat2" class="seat">
+        <div id="seat1" class="seat">
             <div class="holecards">
                 <div class="card holecard1"></div>
                 <div class="card holecard2"></div>
@@ -30,7 +31,7 @@
             </div>
             <div class="bet">$80.00</div>
         </div>
-        <div id="seat3" class="seat">
+        <div id="seat2" class="seat">
             <div class="holecards">
                 <div class="card holecard1"></div>
                 <div class="card holecard2"></div>
@@ -41,7 +42,7 @@
             </div>
             <div class="bet">$80.00</div>
         </div>
-        <div id="seat4" class="seat">
+        <div id="seat3" class="seat">
             <div class="holecards">
                 <div class="card holecard1"></div>
                 <div class="card holecard2"></div>
@@ -52,7 +53,7 @@
             </div>
             <div class="bet">$80.00</div>
         </div>
-        <div id="seat5" class="seat">
+        <div id="seat4" class="seat">
             <div class="holecards">
                 <div class="card holecard1"></div>
                 <div class="card holecard2"></div>
@@ -63,13 +64,35 @@
             </div>
             <div class="bet">$80.00</div>
         </div>
-        <div id="seat6" class="seat">
+        <div id="seat5" class="seat">
             <div class="holecards">
                 <div class="card holecard1"></div>
                 <div class="card holecard2"></div>
             </div>
             <div class="name-chips">
                 <div class="player-name">Player 6</div>
+                <div class="chips">$1000.00</div>
+            </div>
+            <div class="bet">$80.00</div>
+        </div>
+        <div id="seat6" class="seat">
+            <div class="holecards">
+                <div class="card holecard1"></div>
+                <div class="card holecard2"></div>
+            </div>
+            <div class="name-chips">
+                <div class="player-name">Player 7</div>
+                <div class="chips">$1000.00</div>
+            </div>
+            <div class="bet">$80.00</div>
+        </div>
+        <div id="seat7" class="seat">
+            <div class="holecards">
+                <div class="card holecard1"></div>
+                <div class="card holecard2"></div>
+            </div>
+            <div class="name-chips">
+                <div class="player-name">Player 8</div>
                 <div class="chips">$1000.00</div>
             </div>
             <div class="bet">$80.00</div>
@@ -97,7 +120,7 @@
         <div id="name-button" class="setup-button">Name</div>
         <div id="speed-button" class="setup-button">Speed
            <div id="speed-selector">
-              <select>
+              <select id="speed-options">
                  <option value="0">1</option>
                  <option value="1">2</option>
                  <option value="2">3</option>
