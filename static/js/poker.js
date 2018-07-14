@@ -249,7 +249,7 @@ function catchUp(){
     for (var i = 0; i < curBets.length; i++)
         gui_set_bet(curBets[i], i);
 
-    gui_place_button(targetSeat);
+    gui_place_dealer_button(targetSeat);
     targetSeat = (targetSeat + 1) % 8;
 }
 
