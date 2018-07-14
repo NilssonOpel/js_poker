@@ -1,9 +1,8 @@
 "use strict";
 
-
 //  --- Not in the interface ---
 
-function internal_get_a_class_named(curr, searched_name) {
+function internal_get_a_class_named (curr, searched_name) {
   if (!curr) {
     gui_log_to_history("internal_get_a_class_named, no curr for " + searched_name);
   }
@@ -17,7 +16,7 @@ function internal_get_a_class_named(curr, searched_name) {
   return notes;
 }
 
-function internal_FixTheRanking(rank) {
+function internal_FixTheRanking (rank) {
   if (rank == 14) {
     rank = 'ace';
   } else if (rank == 13) {
@@ -30,49 +29,53 @@ function internal_FixTheRanking(rank) {
   return rank;
 }
 
-function internal_FixTheSuiting(suit) {
-  if (suit == 'c')
+function internal_FixTheSuiting (suit) {
+  if (suit == 'c') {
     suit = 'clubs';
-  else if (suit == 'd')
+  } else if (suit == 'd') {
     suit = 'diamonds';
-  else if (suit == 'h')
+  } else if (suit == 'h') {
     suit = 'hearts';
-  else if (suit == 's')
+  } else if (suit == 's') {
     suit = 'spades';
-  else
+  } else {
     alert('Unknown suit ' + suit);
+  }
 
   return suit;
 }
 
-
-function internal_GetCardImageUrl(card) {
+function internal_GetCardImageUrl (card) {
   var suit = card.substring(0, 1);
   var rank = card.substring(1);
   rank = internal_FixTheRanking(rank); // 14 -> 'ace' etc
   suit = internal_FixTheSuiting(suit); // c  -> 'clubs' etc
 
-  return "url(\'static/images/" + rank + '_of_' + suit + ".png')";
+  return "url('static/images/" + rank + '_of_' + suit + ".png')";
 }
 
-
-function internal_setCard(diva, card) {
-  // card may be "" -> do not show card
-  //             "blinded" -> show back
-  //             "s14" -> show ace of spades
-  var image;
-  if (typeof card == 'undefined' || card == "")
-    image = "url('static/images/outline.gif')";
-  else if (card == "blinded")
-    image = "url('static/images/cardback.gif')";
-  else
-    image = internal_GetCardImageUrl(card);
-
+function internal_setBackground (diva, image) {
   var komage = diva.style;
   komage['background-image'] = image;
 }
 
-function internal_clickin_helper(button, button_text, func_on_click) {
+function internal_setCard (diva, card) {
+  // card may be "" -> do not show card
+  //             "blinded" -> show back
+  //             "s14" -> show ace of spades
+  var image;
+  if (typeof card == 'undefined' || card == "") {
+    image = "url('static/images/outline.gif')";
+  } else if (card == "blinded") {
+    image = "url('static/images/cardback.gif')";
+  } else {
+    image = internal_GetCardImageUrl(card);
+  }
+
+  internal_setBackground(diva, image);
+}
+
+function internal_clickin_helper (button, button_text, func_on_click) {
   if (button_text == 0) {
     button.style.visibility = 'hidden';
   } else {
@@ -82,25 +85,23 @@ function internal_clickin_helper(button, button_text, func_on_click) {
   }
 }
 
-
 //  --- here is the GUI stuff ---
 
-
-function gui_hide_poker_table() {
+function gui_hide_poker_table () {
   var table = document.getElementById('poker_table');
   table.style.visibility = 'hidden';
 }
 
-
-function gui_set_player_name(name, seat) {
+function gui_show_poker_table () {
   var table = document.getElementById('poker_table');
-  if (name != "") {
-    table.style.visibility = 'visible';
-  }
+  table.style.visibility = 'visible';
+}
+
+function gui_set_player_name (name, seat) {
+  var table = document.getElementById('poker_table');
   var current = 'seat' + seat;
   var seatloc = table.children[current];
   var chipsdiv = internal_get_a_class_named(seatloc, 'name-chips');
-  //  var chipsdiv = seatloc.getElementById('name-chips');
   var namediv = internal_get_a_class_named(chipsdiv, 'player-name');
   if (name == "") {
     seatloc.style.visibility = 'hidden';
@@ -110,8 +111,7 @@ function gui_set_player_name(name, seat) {
   namediv.textContent = name;
 }
 
-
-function gui_hilite_player(hilite_color, name_color, seat) {
+function gui_hilite_player (hilite_color, name_color, seat) {
   var table = document.getElementById('poker_table');
   var current = 'seat' + seat;
   var seatloc = table.children[current];
@@ -130,8 +130,7 @@ function gui_hilite_player(hilite_color, name_color, seat) {
   }
 }
 
-
-function gui_set_bankroll(amount, seat) {
+function gui_set_bankroll (amount, seat) {
   var table = document.getElementById('poker_table');
   var current = 'seat' + seat;
   var seatloc = table.children[current];
@@ -144,8 +143,7 @@ function gui_set_bankroll(amount, seat) {
   namediv.textContent = amount;
 }
 
-
-function gui_set_bet(bet, seat) {
+function gui_set_bet (bet, seat) {
   var table = document.getElementById('poker_table');
   var current = 'seat' + seat;
   var seatloc = table.children[current];
@@ -154,10 +152,7 @@ function gui_set_bet(bet, seat) {
   betdiv.textContent = bet;
 }
 
-
-
-
-function gui_set_player_cards(card_a, card_b, seat) {
+function gui_set_player_cards (card_a, card_b, seat) {
   var table = document.getElementById('poker_table');
   var current = 'seat' + seat;
   var seatloc = table.children[current];
@@ -169,7 +164,7 @@ function gui_set_player_cards(card_a, card_b, seat) {
   internal_setCard(card2, card_b);
 }
 
-function gui_lay_board_card(n, the_card) {
+function gui_lay_board_card (n, the_card) {
   // Write the card no 'n'
   // the_card = "c9";
 
@@ -188,35 +183,33 @@ function gui_lay_board_card(n, the_card) {
   }
 
   var table = document.getElementById('poker_table');
-  var seatloc = table.children['board'];
+  var seatloc = table.children.board;
 
   var cardsdiv = seatloc.children[current];
   internal_setCard(cardsdiv, the_card);
 }
 
-function gui_write_basic_general(pot_size) {
+function gui_write_basic_general (pot_size) {
   var table = document.getElementById('poker_table');
-  var pot_div = table.children['pot'];
+  var pot_div = table.children.pot;
   var total_div = pot_div.children['total-pot'];
 
   var the_pot = 'Total pot: ' + pot_size;
   total_div.innerHTML = the_pot;
 }
 
-
-function gui_write_basic_general_text(text) {
+function gui_write_basic_general_text (text) {
   var table = document.getElementById('poker_table');
-  var pot_div = table.children['pot'];
+  var pot_div = table.children.pot;
   var total_div = pot_div.children['total-pot'];
   total_div.style.visibility = 'visible';
   total_div.innerHTML = text;
 }
 
-
 var log_text = [];
 var log_index = 0;
 
-function gui_log_to_history(text_to_write) {
+function gui_log_to_history (text_to_write) {
   for (var idx = log_index; idx > 0; --idx) {
     log_text[idx] = log_text[idx - 1];
   }
@@ -226,21 +219,20 @@ function gui_log_to_history(text_to_write) {
     log_index = log_index + 1;
   }
   var text_to_output = '<br><b>' + log_text[0] + '</b>';
-  for (var idx = 1; idx < log_index; ++idx) {
+  for (idx = 1; idx < log_index; ++idx) {
     text_to_output += '<br>' + log_text[idx];
   }
   var history = document.getElementById('history');
   history.innerHTML = text_to_output;
 }
 
-function gui_hide_log_window() {
+function gui_hide_log_window () {
   var history = document.getElementById('history');
   //  history.style.visibility = 'hidden';
   history.style.display = 'none';
 }
 
-
-function gui_place_button(seat) {
+function gui_place_dealer_button (seat) {
   var table_seat = seat; // interface start at 1
   var button = document.getElementById('button');
   if (seat < 0) {
@@ -251,8 +243,23 @@ function gui_place_button(seat) {
   button.className = 'seat' + table_seat + '-button';
 }
 
+function gui_hide_dealer_button () {
+  gui_place_dealer_button(-3);
+}
 
-function gui_setup_fold_call_raise_click(show_fold, call_text, raise_text,
+function gui_hide_fold_call_raise_click () {
+  var buttons = document.getElementById('action-options');
+  var fold = buttons.children['fold-button'];
+  internal_clickin_helper(fold, 0, 0);
+
+  var call = buttons.children['call-button'];
+  internal_clickin_helper(call, 0, 0);
+
+  var raise = buttons.children['raise-button'];
+  internal_clickin_helper(raise, 0, 0);
+}
+
+function gui_setup_fold_call_raise_click (show_fold, call_text, raise_text,
   fold_func, call_func, raise_func) {
   // Here we have a coupling of the funtions 'human_fold', 'human_call' and 'human_raise'
   var buttons = document.getElementById('action-options');
@@ -266,11 +273,10 @@ function gui_setup_fold_call_raise_click(show_fold, call_text, raise_text,
   internal_clickin_helper(raise, raise_text, raise_func);
 }
 
-
-function curry_in_speedfunction(speed_func) {
+function curry_in_speedfunction (speed_func) {
   var call_back = speed_func;
 
-  var ret_func = function() {
+  var ret_func = function () {
     var buttons = document.getElementById('setup-options');
     var speed = buttons.children['speed-button'];
     var selector = speed.children['speed-selector'];
@@ -283,26 +289,63 @@ function curry_in_speedfunction(speed_func) {
   return ret_func;
 }
 
-
-function gui_setup_option_buttons(name_func, speed_func, help_func) {
+function gui_set_selected_speed_option (index) {
   var buttons = document.getElementById('setup-options');
-  var name = buttons.children['name-button'];
-  name.onclick = name_func;
   var speed = buttons.children['speed-button'];
   var selector = speed.children['speed-selector'];
-  speed.onchange = curry_in_speedfunction(speed_func);
-  var help = buttons.children['help-button'];
-  help.onclick = help_func;
+  var qqq = selector.children['speed-options'];
+  qqq.value = index;
 }
 
+function internal_le_button (buttons, button_name, button_func) {
+  var le_button = buttons.children[button_name];
+  le_button.style.visibility = 'visible';
+  le_button.onclick = button_func;
+}
 
-function gui_write_game_response(text) {
+function gui_setup_option_buttons (name_func, speed_func, help_func, check_func) {
+  var buttons = document.getElementById('setup-options');
+
+  internal_le_button(buttons, 'name-button', name_func);
+
+  var speed = buttons.children['speed-button'];
+  speed.style.visibility = 'visible';
+  speed.onchange = curry_in_speedfunction(speed_func);
+
+  internal_le_button(buttons, 'help-button', help_func);
+  internal_le_button(buttons, 'check-button', check_func);
+}
+
+function internal_hide_le_button (buttons, button_name, button_func) {
+  var le_button = buttons.children[button_name];
+  le_button.style.visibility = 'hidden';
+}
+
+function gui_hide_setup_option_buttons (name_func, speed_func, help_func, check_func) {
+  var buttons = document.getElementById('setup-options');
+
+  internal_hide_le_button(buttons, 'name-button');
+  internal_hide_le_button(buttons, 'speed-button');
+  internal_hide_le_button(buttons, 'help-button');
+  internal_hide_le_button(buttons, 'check-button');
+}
+
+function gui_hide_game_response () {
+  var response = document.getElementById('game-response');
+  response.style.visibility = 'hidden';
+}
+
+function gui_show_game_response () {
+  var response = document.getElementById('game-response');
+  response.style.visibility = 'visible';
+}
+
+function gui_write_game_response (text) {
   var response = document.getElementById('game-response');
   response.innerHTML = text;
 }
 
-
-function gui_write_guick_raise(text) {
+function gui_write_guick_raise (text) {
   var response = document.getElementById('quick-raises');
   if (text == "") {
     response.style.visibility = 'hidden';
@@ -310,4 +353,27 @@ function gui_write_guick_raise(text) {
     response.style.visibility = 'visible';
     response.innerHTML = text;
   }
+}
+
+function gui_hide_guick_raise () {
+  gui_write_guick_raise("");
+}
+
+function gui_write_modal_box (text) {
+  var modal = document.getElementById('modal-box');
+  if (text == "") {
+    modal.style.display = "none";
+  } else {
+    modal.innerHTML = text;
+    modal.style.display = "block";
+  }
+}
+
+function gui_initialize_css () {
+  // Set all the backgrounds
+  var image;
+  var item;
+  item = document.getElementById('poker_table');
+  image = "url('static/images/poker_table.png')";
+  internal_setBackground(item, image);
 }

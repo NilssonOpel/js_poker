@@ -1,330 +1,339 @@
 .poker-table {
     background-image: url('../images/poker_table.png');
     background-repeat: no-repeat;
-    width: 745px;
     height: 411px;
+    width: 745px;
 }
 
 .seat {
-    width:150px;
-    height:150px;
+    height: 150px;
     position: absolute;
+    width: 150px;
 }
 
 #button {
     background-image: url('../images/dealerbutton.png');
     background-repeat: no-repeat;
     background-size: 100%;
-    width:24px;
-    height:19px;
+    height: 19px;
     position: absolute;
+    width: 24px;
 }
 
 .name-chips {
-    width:140px;
-    height:33px;
-    background-color:gray;
-    font-size: 14px;
-    color:white;
-    text-align: center;
-    top:50px;
-    position:absolute;
+    background-color: gray;
     border-radius: 2px;
+    color: white;
+    font-size: 14px;
+    height: 33px;
+    position: absolute;
+    text-align: center;
+    top: 50px;
+    width: 140px;
 }
 
 .player-name {
-    width:100%;
+    width: 100%;
 }
 
 .chips {
 }
 
 .card {
-    width:50px;
-    height:73px;
-    border-radius: 2px;
     background-image: url('../images/cardback.gif');
     background-size: 100%;
+    border-radius: 2px;
+    height: 73px;
+    width: 50px;
 }
 
 .holecards {
-    width:102px;
-    height:73px;
-    float:left;
-    position:absolute;
-    left:20;
-    top:0;
+    float: left;
+    height: 73px;
+    left: 20;
+    position: absolute;
+    top: 0;
+    width: 102px;
 }
 
 .holecard1 {
-    position:absolute;
-    left:0;
-    top:0;
+    left: 0;
+    position: absolute;
+    top: 0;
 }
 
 .holecard2 {
-    position:absolute;
-    left:50px;
-    top:0;
+    left: 50px;
+    position: absolute;
+    top: 0;
 }
 
 
 
 .bet {
+    color: white;
     font-size: 12px;
-    color:white;
+    left: 0;
     position: absolute;
-    left:0;
-    top:0;
+    top: 0;
 }
 
 #seat0 {
-    left:100px;
-    top:340px;
+    left: 100px;
+    top:  340px;
 }
 .seat0-button {
-    left:225px;
-    top:410px;
+    left: 225px;
+    top:  410px;
 }
 #seat0 .bet {
-    left:40px;
-    top:-20px;
+    left: 40px;
+    top: -20px;
 }
 
 #seat1 {
-    left:0px;
-    top:165px;
+    left:  0px;
+    top: 165px;
 }
 .seat1-button {
-    left:125px;
-    top:235px;
+    left: 125px;
+    top:  235px;
 }
 #seat1 .bet {
-    left:50px;
-    top:100px;
+    left: 50px;
+    top: 100px;
 }
 
 #seat2 {
-    left:100px;
-    top:10px;
+    left: 100px;
+    top:   10px;
 }
 .seat2-button {
-    left:225px;
-    top:80px;
+    left: 225px;
+    top:   80px;
 }
 #seat2 .bet {
-    left:30px;
-    top:100px;
+    left: 30px;
+    top: 100px;
 }
 
 #seat3 {
-    left:325px;
-    top:10px;
+    left: 325px;
+    top:   10px;
 }
 
 .seat3-button {
-    left:320px;
-    top:80px;
+    left: 320px;
+    top:   80px;
 }
 #seat3 .bet {
-    left:30px;
-    top:100px;
+    left: 30px;
+    top: 100px;
 }
 
 #seat4 {
-    left:550px;
-    top:10px;
+    left: 550px;
+    top:   10px;
 }
 
 .seat4-button {
-    left:540px;
-    top:80px;
+    left: 540px;
+    top:   80px;
 }
 #seat4 .bet {
-    left:30px;
-    top:100px;
+    left: 30px;
+    top: 100px;
 }
-
-
 
 #seat5 {
-    left:650px;
-    top:165px;
+    left: 650px;
+    top:  165px;
 }
 .seat5-button {
-    left:645px;
-    top:235px;
+    left: 645px;
+    top:  235px;
 }
 #seat5 .bet {
-    left:0px;
-    top:100px;
+    left:  0px;
+    top: 100px;
 }
 
 #seat6 {
-    left:550px;
-    top:340px;
+    left: 550px;
+    top:  340px;
 }
 .seat6-button {
-    left:540px;
-    top:410px;
+    left: 540px;
+    top:  410px;
 }
 #seat6 .bet {
-    left:30px;
-    top:-20px;
+    left: 30px;
+    top: -20px;
 }
-
 
 #seat7 {
-    left:325px;
-    top:340px;
+    left: 325px;
+    top:  340px;
 }
 .seat7-button {
-    left:320px;
-    top:410px;
+    left: 320px;
+    top:  410px;
 }
 #seat7 .bet {
-    left:30px;
-    top:-20px;
+    left: 30px;
+    top: -20px;
 }
 
 
 #board {
-    position:absolute;
-    left:250px;
-    top:168px;
+    left: 250px;
+    position: absolute;
+    top:  168px;
 }
 
 #pot {
-    position: absolute;
-    left:325;
-    top:245px;
+    color: white;
     font-size: 16px;
-    color:white;
+    left: 325px;
+    position: absolute;
     text-align: center;
+    top: 245px;
 }
 
 .boardcard {
-    width:50px;
-    height:73px;
+    height: 73px;
+    left: 0;
     position: absolute;
-    left:0;
-    top:0;
+    top: 0;
+    width: 50px;
 }
 
 #flop1 {
 }
 
 #flop2 {
-    left:52px;
+    left: 52px;
 }
 
 #flop3 {
-    left:104px;
+    left: 104px;
 }
 
 #turn {
-    left:156px;
+    left: 156px;
 }
 
 #river {
-    left:208px;
+    left: 208px;
 }
 
 #action-options {
-    width:500px;
-    height:100px;
+    height: 100px;
+    left: 100px;
     position: absolute;
-    left:100px;
-    top:450px;
+    top: 450px;
+    width: 500px;
 }
 
 .action-button {
     background-color: silver;
-    position: absolute;
-    color: white;
     border-radius: 2px;
-    height:30px;
-    padding: 10px 5px 0 5px;
-    font-size: 18px;
-    left:0;
-    top:0;
+    color: white;
     cursor: pointer;
+    font-size: 18px;
+    height: 30px;
+    left: 0;
+    padding: 10px 5px 0 5px;
+    position: absolute;
+    top: 0;
 }
 
 #setup-options {
-    width:100px;
-    height:400px;
+    height: 400px;
+    left: 800px;
     position: absolute;
-    left:800px;
-    top:450px;
+    top: 450px;
+    width: 100px;
 }
 
 .setup-button {
     background-color: silver;
-    position: absolute;
-    color: white;
     border-radius: 2px;
-    height:30px;
-    padding: 10px 5px 0 5px;
-    font-size: 18px;
-    left:0;
-    top:0;
+    color: white;
     cursor: pointer;
+    font-size: 18px;
+    height: 30px;
+    left: 0;
+    padding: 10px 5px 0 5px;
+    position: absolute;
+    top: 0;
 }
 
 #name-button {
 }
 
 #speed-button {
-    top:60px;
-    width:100px;
+    top: 50px;
+    width: 100px;
 }
 
 select {
-    position: absolute;
-    background: silver;
     background-color: silver;
-    border:none;
-    top:10px;
-    left:60px;
-    width:3em;
+    background: silver;
     border-radius: 2px;
+    border: none;
+    left: 60px;
+    position: absolute;
+    top: 10px;
+    width: 3em;
 }
 
 #help-button {
-    top:120px;
+    top: 100px;
+}
+
+#check-button {
+    top:   150px;
+    width: 140px;
 }
 
 #history {
-    position:absolute;
-    border-radius: 2px;
     border-color: black;
+    border-radius: 2px;
     border-style: solid;
     border-width: 1px;
     font-size: 10px;
-
-    width:400px;
-    height:600px;
-
-    left:50px;
-    top:600px;
+    height: 600px;
+    left: 50px;
+    position: absolute;
+    top: 600px;
+    width: 400px;
 }
 
 #game-response {
-    position: absolute;
-    border-radius: 2px;
     border-color: black;
+    border-radius: 2px;
     border-style: solid;
     border-width: 1px;
     color: black;
     font-size: 12px;
+    height: 300px;
+    left: 800px;
+    position: absolute;
     text-align: center;
+    top: 5px;
+    width: 600px;
+}
 
-    width:600px;
-    height:300px;
-
-    left:800px;
-    top:5px;
+#production-code {
+    color: black;
+    font-size: 10px;
+    height: 20px;
+    left: 800px;
+    position: absolute;
+    text-align: right;
+    top: 310px;
+    width: 600px;
 }
 
 .response-normal {
@@ -341,22 +350,22 @@ select {
 }
 
 #call-button {
-    left:80px;
+    left: 80px;
 }
 
 #raise-button {
-    left:160px;
+    left: 160px;
 }
 
 #quick-raises {
-    position: absolute;
     background-color: silver;
     font-size: 12px;
+    height: 75px;
+    left: 50px;
+    position: absolute;
     text-align: center;
-    width:300px;
-    height:75px;
-    left:50px;
-    top:500px;
+    top: 500px;
+    width: 300px;
 }
 #quick-raises a:link {
     color: white;
@@ -367,3 +376,77 @@ select {
     text-shadow: 3px 3px 4px #000000;
 }
 
+
+#modal-box {
+    background-color: silver;
+    display: none;
+    font-size: 12px;
+    height: 100%;
+    left: 0;
+    overflow: auto; /* Enable scroll */
+    position: fixed;
+    text-align: center;
+    top: 0;
+    width: 100%;
+    z-index: 1;  /* Stay on top */
+}
+
+#modal-box a:link {
+    color: white;
+    text-decoration: none;
+}
+#modal-box a:hover {
+    color: white;
+    text-shadow: 3px 3px 4px #000000;
+}
+
+/* - for - */
+
+h1 {
+    font-family: Garamond, Baskerville, Baskerville Old Face, Hoefler Text, Times New Roman, serif;
+    font-size: 24px;
+    font-style: normal;
+    font-variant: normal;
+    font-weight: 500;
+    line-height: 26.4px;
+}
+h2 {
+    font-family: Garamond, Baskerville, Baskerville Old Face, Hoefler Text, Times New Roman, serif;
+    font-size: 18px;
+    font-style: normal;
+    font-variant: normal;
+    font-weight: 500;
+    line-height: 20px;
+}
+h3 {
+    font-family: Garamond, Baskerville, Baskerville Old Face, Hoefler Text, Times New Roman, serif;
+    font-size: 14px;
+    font-style: normal;
+    font-variant: normal;
+    font-weight: 500;
+    line-height: 15.4px;
+}
+p {
+    font-family: Garamond, Baskerville, Baskerville Old Face, Hoefler Text, Times New Roman, serif;
+    font-size: 14px;
+    font-style: normal;
+    font-variant: normal;
+    font-weight: 400;
+    line-height: 20px;
+}
+blockquote {
+    font-family: Garamond, Baskerville, Baskerville Old Face, Hoefler Text, Times New Roman, serif;
+    font-size: 21px;
+    font-style: normal;
+    font-variant: normal;
+    font-weight: 400;
+    line-height: 30px;
+}
+pre {
+    font-family: Garamond, Baskerville, Baskerville Old Face, Hoefler Text, Times New Roman, serif;
+    font-size: 13px;
+    font-style: normal;
+    font-variant: normal;
+    font-weight: 400;
+    line-height: 18.5667px;
+}
